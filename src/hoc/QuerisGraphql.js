@@ -12,3 +12,16 @@ export const GET_PHOTOS = gql`
     }
   }
 `;
+
+export const GET_PHOTO = gql`
+  query getSinglePhoto($id: ID!) {
+    photo(id: $id) {
+      id
+      categoryId
+      src
+      likes
+      liked
+      userId
+    }
+  }
+`;

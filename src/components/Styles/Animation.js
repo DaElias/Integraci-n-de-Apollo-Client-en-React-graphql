@@ -35,7 +35,17 @@ const girar = keyframes`
     transform: rotate(360deg);
   }
 `;
-
+const placeHolderShimmer = keyframes`
+  0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+`;
+export const placeHolderShi = () => css`
+  animation-name: ${placeHolderShimmer};
+`;
 export const Loader = styled.div`
   width: 70px;
   height: 70px;

@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Category } from "../Category";
 import { Item, List } from "./styles";
-import { Loader } from "../Styles/Animation";
+import LoaderPhotoCategory from "../Styles/LoaderPhotoCategory";
 //* customhook
 
 function useCategoriesData() {
@@ -17,7 +17,7 @@ function useCategoriesData() {
 }
 
 const ListOfCategory = () => {
-  const { categories, loading  } = useCategoriesData();
+  const { categories, loading } = useCategoriesData();
   const [showFIxed, setShowFIxed] = useState(false);
   useEffect(() => {
     const onScroll = (e) => {
@@ -31,7 +31,7 @@ const ListOfCategory = () => {
   const rednderList = (fixed) => (
     <List fixed={fixed}>
       {loading ? (
-        <Loader />
+        <LoaderPhotoCategory />
       ) : (
         categories.map((category, key) => (
           <Item key={key}>

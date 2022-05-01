@@ -1,9 +1,17 @@
+import { Fragment } from "react";
 import ListOfCategory from "./components/ListOfCategory";
 import { GlobalStyle } from "./components/Styles/GlobalStyle";
 import ListPhotoCard from "./components/ListPhotoCard";
+import {PhotoCardWithQuery} from "./container/PhotoCardWithQuery";
 import Logo from "./components/Logo";
 function App() {
-  return (
+  const urlParams = new window.URLSearchParams(window.location.search);
+  const detailId = urlParams.get("detail");
+  return detailId ? (
+    <Fragment>
+      <PhotoCardWithQuery id={detailId} />
+    </Fragment>
+  ) : (
     <>
       <Logo />
       <GlobalStyle />
