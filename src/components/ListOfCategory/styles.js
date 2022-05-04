@@ -21,7 +21,7 @@ export const List = styled.ul`
       max-width: 400px;
       padding: 5px;
       position: fixed;
-      top: -15px;
+      top: -5px;
       z-index: 1;
     `}/* &.fixed {
     ${scale}

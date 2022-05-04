@@ -25,3 +25,15 @@ export const GET_PHOTO = gql`
     }
   }
 `;
+
+export const GET_CATEGORYS = gql`
+  query getCategory {
+    categories {
+      id
+      cover
+      name
+      path
+      emoji
+    }
+  }
+`;

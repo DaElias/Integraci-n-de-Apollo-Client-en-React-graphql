@@ -16,7 +16,7 @@ export const fadeIn = ({ time = "1s", type = "ease" }) => css`
 const scaleDown = keyframes`
     from {
       transform: scale(1);
-      transform: translate(0px, -100px);
+      transform: translate(100px, -100px);
     }
     to {
       transform: scale(0.8);
@@ -57,3 +57,4 @@ export const Loader = styled.div`
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 `;
+

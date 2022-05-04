@@ -27,6 +27,8 @@ export const Button = styled.button`
   & svg {
     margin-right: 4px;
   }
+  background: none;
+  border: none;
 `;
 
 export const Article = styled.article`
