@@ -8,12 +8,11 @@ import {
   PlaceHolderButtom,
 } from "../Styles/componentStyled";
 const ListPhotoCard = () => {
-  const { id } = useParams();
+  const { categoryId } = useParams();
   const { loading, data } = useQuery(GET_PHOTOS, {
-    variables: { categoryId: id },
+    variables: { categoryId },
   });
   const photos = data ? data.photos : [];
-
 
   return (
     <ul>

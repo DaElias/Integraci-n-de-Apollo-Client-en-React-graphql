@@ -27,7 +27,7 @@ export const scale = ({ time = "1s", type = "ease" }) =>
     animation: ${time} ${scaleDown} ${type};
   `;
 
-const girar = keyframes`
+export const girar = keyframes`
   from {
     transform: rotate(0deg);
   }
@@ -57,4 +57,3 @@ export const Loader = styled.div`
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 `;
-

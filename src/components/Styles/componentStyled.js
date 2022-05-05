@@ -60,17 +60,5 @@ export const PlaceHolderCategory = styled.div`
   margin-bottom: 4px;
 `;
 
-export const ContainerShowPhoto = styled.div`
-  display: flex;
-  align-items: center;
-  /* border: 1px solid black; */
-  justify-content: center;
-  article {
-    margin-top: 2%;
-    width: 100%;
-    max-width: 70%;
-  }
-`;
-
 
 

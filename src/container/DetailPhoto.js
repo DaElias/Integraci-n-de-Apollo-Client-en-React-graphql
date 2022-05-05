@@ -2,21 +2,20 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import PhotoCard from "../components/PhotoCard";
 import { GET_PHOTO } from "../hoc/QuerisGraphql";
-import {
-  ContainerShowPhoto,
-  PlaceholderOnlyPhoto,
-} from "../components/Styles/componentStyled";
+import { PlaceholderOnlyPhoto } from "../components/Styles/componentStyled";
 import { useParams } from "react-router-dom";
+import Logo from "../components/Logo";
 
-export const PhotoCardWithQuery = () => {
-  const { id } = useParams();
+export const DetailPhoto = () => {
+  const { photoId } = useParams();
   const { loading, data } = useQuery(GET_PHOTO, {
-    variables: { id },
+    variables: { id: photoId },
   });
   const photo = data ? data.photo : {}; // * assigantion
   return (
-    <ContainerShowPhoto>
-      {!loading ? <PhotoCard id={id} {...photo} /> : <PlaceholderOnlyPhoto />}
-    </ContainerShowPhoto>
+    <>
+      <Logo />
+      {!loading ? <PhotoCard {...photo} /> : <PlaceholderOnlyPhoto />}
+    </>
   );
 };
