@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { fadeIn } from "../Styles/Animation";
 
-export const Ancor = styled.a`
+export const Ancor = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;

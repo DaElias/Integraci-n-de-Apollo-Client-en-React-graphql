@@ -3,8 +3,8 @@ import { scale } from "../Styles/Animation";
 
 export const List = styled.ul`
   display: flex;
-  overflow-x: scroll;
   overflow-y: hidden;
+  overflow-x: scroll;
   width: 100%;
   list-style: none;
   ${(props) =>

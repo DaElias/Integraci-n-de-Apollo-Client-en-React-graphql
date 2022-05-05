@@ -2,10 +2,14 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import PhotoCard from "../components/PhotoCard";
 import { GET_PHOTO } from "../hoc/QuerisGraphql";
-import { ContainerShowPhoto,PlaceholderOnlyPhoto } from "../components/Styles/componentStyled";
+import {
+  ContainerShowPhoto,
+  PlaceholderOnlyPhoto,
+} from "../components/Styles/componentStyled";
+import { useParams } from "react-router-dom";
 
-
-export const PhotoCardWithQuery = ({ id = 2 }) => {
+export const PhotoCardWithQuery = () => {
+  const { id } = useParams();
   const { loading, data } = useQuery(GET_PHOTO, {
     variables: { id },
   });

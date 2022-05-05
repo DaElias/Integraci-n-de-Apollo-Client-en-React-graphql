@@ -1,13 +1,8 @@
-import { Fragment } from "react";
-import ListOfCategory from "./components/ListOfCategory";
-import { GlobalStyle } from "./components/Styles/GlobalStyle";
-import ListPhotoCard from "./components/ListPhotoCard";
+import { Route, Routes } from "react-router-dom";
+import Home from "./container/Home";
+// import NotFund from "./container/NotFund";
 import { PhotoCardWithQuery } from "./container/PhotoCardWithQuery";
-import Logo from "./components/Logo";
 function App() {
-  const urlParams = new window.URLSearchParams(window.location.search);
-  const detailId = urlParams.get("detail");
-
 
   // * important !
   Promise.resolve(
@@ -16,18 +11,12 @@ function App() {
       : import("intersection-observer")
   );
 
-  return detailId ? (
-    <Fragment>
-      <PhotoCardWithQuery id={detailId} />
-    </Fragment>
-  ) : (
-    <>
-      <Logo />
-      <GlobalStyle />
-      <ListOfCategory />
-      <ListPhotoCard />
-    </>
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/pet/:id" element={<Home />} />
+      <Route path="/pet/photo/:id" element={<PhotoCardWithQuery />} />
+    </Routes>
   );
 }
-
 export default App;
