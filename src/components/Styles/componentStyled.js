@@ -41,12 +41,13 @@ export const PlaceHolderButtom = styled.div`
 
 export const PlaceholderOnlyPhoto = styled.div`
   background-color: #ddd;
-  min-height: 553px;
-  min-width: 300px;
-  @media (min-width: 768px) {
-    width: 600px;
-  }
-  box-shadow: 0px 10px 14px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding: 56.25% 0 0 0;
+  position: relative;
+  width: 100%;
 `;
 
 export const PlaceHolderCategory = styled.div`

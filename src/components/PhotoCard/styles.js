@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { fadeIn } from "../Styles/Animation";
 export const ImgWrapper = styled.div`
-   border-radius: 10px;
+  border-radius: 10px;
   display: block;
   height: 0;
   overflow: hidden;
   padding: 56.25% 0 0 0;
   position: relative;
-  width: 100%; 
+  width: 100%;
 `;
 export const Img = styled.img`
   ${fadeIn({})}
