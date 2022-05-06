@@ -8,25 +8,31 @@ import { login } from "../actions/types";
 const NotRegisterUser = () => {
   const dispatch = useDispatch();
   // const loginAuth = useMutation();
-  const [registerAuth] = useMutation(REGISTER);
+  const [registerAuth, { error }] = useMutation(REGISTER);
   const [showLogInRegister, setShowLogInRegister] = useState(true);
 
+  console.log(error);
   const onSubmitLogIn = (e, dataform) => {
     e.preventDefault();
     console.log("log in!!");
   };
 
-  const onSubmitRegister = (e, dataform) => {
+  const onSubmitRegister = async (e, dataform) => {
     e.preventDefault();
     console.log("register!!");
     const { email, name = "", password } = dataform;
     //code here
-    registerAuth({
+    await registerAuth({
       variables: {
         input: { email, password },
       },
-    });
-    dispatch(login({ email, name, id: name }));
+    })
+      .then(() => {
+        dispatch(login({ email, name, id: name }));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
   return (
     <Fragment>
