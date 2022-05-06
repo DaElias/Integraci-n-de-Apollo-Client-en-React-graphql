@@ -4,28 +4,31 @@ const initialState = {
   user: {
     login: false,
     name: "",
-    mail: "",
+    email: "",
     id: "",
   },
   datos: {},
 };
 
 export const datoReducer = (state = initialState, { type, payload }) => {
-  console.log(type);
   switch (type) {
     case LOGIN_TYPE:
-      const { name, mail, id } = payload;
+      const { name, email, id } = payload;
       return {
         ...state,
         user: {
           login: true,
           name,
-          mail,
+          email,
           id,
         },
       };
     case LOGOUT_TYPE:
-      return { ...state, user: {}, datos: {} };
+      return {
+        ...state,
+        user: { login: false, name: "", email: "" },
+        datos: {},
+      };
     //   return { ...state, user: initialState.user, datos: initialState.datos };
     default:
       return { ...state };
