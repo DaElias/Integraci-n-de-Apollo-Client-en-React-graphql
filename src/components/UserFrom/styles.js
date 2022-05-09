@@ -4,7 +4,6 @@ import { fadeIn } from "../Styles/Animation";
 export const Form = styled.form`
   padding: 16px 0;
   width: 100%;
-
 `;
 export const Input = styled.input`
   border: 1px solid #ccc;
@@ -30,10 +29,12 @@ export const Button = styled.button`
   display: block;
   width: 100%;
   text-align: center;
+  cursor: pointer;
   ${(props) =>
     props.disabled &&
     css`
-      background: #95a5a6;
+      cursor: not-allowed;
+      opacity: 0.5;
     `}
 `;
 

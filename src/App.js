@@ -1,21 +1,28 @@
 import { Route, Routes } from "react-router-dom";
-import useLogin from "./hoc/useLogin";
+import { useSelector } from "react-redux";
 import Home from "./container/Home";
 import NavBar from "./components/NavBar";
 import { DetailPhoto } from "./container/DetailPhoto";
 import Favorites from "./container/Favorites";
 import User from "./container/User";
 import NotRegisterUser from "./container/NotRegisterUser";
+import { TOKEN_NAME } from "./actions/types";
 
 const UserLogin = ({ isLoggedIn, children }) => {
+  const token = localStorage.getItem(TOKEN_NAME);
+
+  //* validar Token */
+  if (token) {
+    return children;
+  }
+
   if (!isLoggedIn) {
     return <NotRegisterUser />;
   }
-  return children;
 };
 
 function App() {
-  const state = useLogin();
+  const state = useSelector((state) => state.user);
   const isLoggedIn = state.login;
   // * important !
   Promise.resolve(

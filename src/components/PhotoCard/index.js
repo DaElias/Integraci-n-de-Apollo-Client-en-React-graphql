@@ -12,19 +12,9 @@ const DEFAULT_IMG =
 
 const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMG, liked = false }) => {
   const [LikeMutation] = useMutation(LIKE_ANONIMUS_PHOTO);
-  const ID_KEY = `liked-${id}`;
-  const [likedd, setLiked] = useLocalStorage(ID_KEY, liked);
-  const [show, elemt] = useNearScreem();
 
-  const handleFavClick = () => {
-    setLiked(!likedd);
-    if (!likedd) {
-      console.log("Like");
-      LikeMutation({ variables: { input: { id } } });
-    } else {
-      console.log("disLike");
-    }
-  };
+  const [show, elemt] = useNearScreem();
+  const handleFavClick = () => LikeMutation({ variables: { input: { id } } });
 
   return (
     <Article ref={elemt}>
@@ -35,7 +25,7 @@ const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMG, liked = false }) => {
               <Img src={src} />
             </ImgWrapper>
           </Link>
-          <FavButtom likedd={likedd} likes={likes} onClick={handleFavClick} />
+          <FavButtom likedd={liked} likes={likes} onClick={handleFavClick} />
         </Fragment>
       )}
     </Article>

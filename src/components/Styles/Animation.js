@@ -47,13 +47,18 @@ export const placeHolderShi = () => css`
   animation-name: ${placeHolderShimmer};
 `;
 export const Loader = styled.div`
-  width: 70px;
-  height: 70px;
+  width: 9px;
+  height: 9px;
   border: 10px solid #eee;
-  border-top: 10px solid #85a2b6;
+  border-top: 10px solid #8d00ff;
   border-radius: 50%;
   animation-name: ${girar};
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-iteration-count: infinite;
+  left: 50%;
+  position: relative;
   animation-timing-function: linear;
 `;
+
+
+
