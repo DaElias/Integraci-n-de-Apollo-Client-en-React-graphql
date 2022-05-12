@@ -12,7 +12,6 @@ const GetFavorites = () => {
 
   if (error) {
     console.log(error);
-
     window.location.replace("/");
     // return (
     //   <div

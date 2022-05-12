@@ -18,4 +18,5 @@ const NavBar = ({ size = "32px" }) => {
   );
 };
 
+
 export default NavBar;

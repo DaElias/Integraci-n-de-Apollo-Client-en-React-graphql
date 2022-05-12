@@ -6,7 +6,7 @@ import { useQuery } from "@apollo/client";
 import { GET_CATEGORYS } from "../../hoc/QuerisGraphql";
 
 const ListOfCategory = () => {
-  const { loading, data } = useQuery(GET_CATEGORYS );
+  const { loading, data } = useQuery(GET_CATEGORYS);
   const categories = data ? data.categories : [];
 
   const [showFIxed, setShowFIxed] = useState(false);
@@ -46,6 +46,8 @@ const ListOfCategory = () => {
     </Fragment>
   );
 };
+
+// const ListOfCategory = () => useMemo(ListOfCategoryCompoent);
 
 export default ListOfCategory;
 

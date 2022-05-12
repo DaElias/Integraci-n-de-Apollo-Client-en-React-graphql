@@ -7,6 +7,7 @@ import {
   PlaceholderListCard,
   PlaceHolderButtom,
 } from "../Styles/componentStyled";
+
 const ListPhotoCard = () => {
   const { categoryId = 1 } = useParams();
   const { loading, data } = useQuery(GET_PHOTOS, {
@@ -15,7 +16,7 @@ const ListPhotoCard = () => {
   const photos = data ? data.photos : [];
 
   return (
-    <ul style={{paddingBottom:"45px"}}>
+    <ul style={{ paddingBottom: "45px" }}>
       {!loading ? (
         photos.map((id, key) => <PhotoCard key={key} {...id} />)
       ) : (
@@ -27,5 +28,7 @@ const ListPhotoCard = () => {
     </ul>
   );
 };
+
+// const ListPhotoCard = () => useMemo(ListPhotoCardComponent);
 
 export default ListPhotoCard;
