@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
+// import { useNavigate } from "react-router-dom";
 import { REGISTER } from "../../hoc/MutationsGraphql";
 import { handleLogin } from "../../actions/actions";
 import { RegisterSvg } from "../Logo/index";
@@ -8,7 +9,6 @@ import { Container, Form, Input, Button } from "./styles";
 import { Loader as Spinner } from "../Styles/Animation";
 import Information from "../Information/index";
 import { TOKEN_NAME } from "../../actions/types";
-import { useNavigate } from "react-router-dom";
 
 const initialState = {
   email: "",
@@ -19,7 +19,7 @@ const initialState = {
 const FormRegister = () => {
   const [registerAuth, { loading }] = useMutation(REGISTER);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [dataform, setDataForm] = useState(initialState);
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showInformation, setShowInformation] = useState(false);
@@ -65,7 +65,8 @@ const FormRegister = () => {
         const { signup } = res.data;
         window.sessionStorage.setItem(TOKEN_NAME, signup);
         dispatch(handleLogin({ email, name: "", token: signup }));
-        navigate("/");
+        window.location.replace("/")
+        // navigate("/favs");
       })
       .catch((e) => {
         // console.log(e);

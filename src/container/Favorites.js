@@ -1,12 +1,13 @@
 import React from "react";
 import GetFavorites from "../components/ListOfFavs/index";
+import HelmetLayaout from "../components/Layaout/HelmetLayaout";
+
 
 const Favorites = () => {
   return (
-    <div>
-      Favorites
+    <HelmetLayaout title="Favorites"  content="Fotos favoritas" emoji="❤️">
       <GetFavorites />
-    </div>
+    </HelmetLayaout>
   );
 };
 

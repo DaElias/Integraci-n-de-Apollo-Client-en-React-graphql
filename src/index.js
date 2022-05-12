@@ -32,10 +32,18 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-const errorLink = onError(({ _, networkError }) => {
+const errorLink = onError(({ networkError, graphQLErrors }) => {
   if (networkError) {
     console.log(networkError.result.code);
     window.sessionStorage.removeItem(TOKEN_NAME);
+  }
+  if (graphQLErrors) {
+    if (
+      graphQLErrors[0].extensions.code === "INTERNAL_SERVER_ERROR" &&
+      window.sessionStorage.getItem(TOKEN_NAME)
+    ) {
+      window.location.replace("/");
+    } 
   }
 });
 

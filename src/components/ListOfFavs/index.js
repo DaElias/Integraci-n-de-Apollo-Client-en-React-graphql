@@ -12,18 +12,20 @@ const GetFavorites = () => {
 
   if (error) {
     console.log(error);
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
-        <h2>Ocurrio un error inesperado :C</h2>
-      </div>
-    );
+
+    window.location.replace("/");
+    // return (
+    //   <div
+    //     style={{
+    //       display: "flex",
+    //       justifyContent: "center",
+    //       alignItems: "center",
+    //       textAlign: "center",
+    //     }}
+    //   >
+    //     <h2>Ocurrio un error inesperado :C</h2>
+    //   </div>
+    // );
   }
 
   return loading ? (
