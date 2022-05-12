@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../../hoc/MutationsGraphql";
-import { login as loginLocal } from "../../actions/types";
+import { handleLogin } from "../../actions/actions";
 import { Button, Form, Input, Container } from "./styles";
 import { RegisterSvg } from "../Logo/index";
 import { Loader as Spinner } from "../Styles/Animation";
 import Information from "../Information";
-import { TOKEN_NAME } from "../../actions/types";
-
+import { useNavigate } from "react-router-dom";
 const initialState = {
   email: "",
   password: "",
@@ -16,6 +15,7 @@ const initialState = {
 
 const FormLogin = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [loginAuth, { loading }] = useMutation(LOGIN);
   const [dataform, setDataForm] = useState(initialState);
   const [showInformation, setShowInformation] = useState(false);
@@ -36,7 +36,6 @@ const FormLogin = () => {
   const handleLogIn = async (e) => {
     e.preventDefault();
     const { email, password } = dataform;
-
     await loginAuth({
       variables: {
         input: {
@@ -47,8 +46,8 @@ const FormLogin = () => {
     })
       .then((res) => {
         const { login } = res.data;
-        localStorage.setItem(TOKEN_NAME, login);
-        dispatch(loginLocal({ email, name: email, id: login }));
+        dispatch(handleLogin({ email, name: "", token: login }));
+        navigate("/");
       })
       .catch((e) => {
         console.log(e);

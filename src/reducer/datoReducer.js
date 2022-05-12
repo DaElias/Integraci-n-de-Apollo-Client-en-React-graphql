@@ -5,7 +5,6 @@ const initialState = {
     login: false,
     name: "",
     email: "",
-    id: "",
   },
   datos: {},
 };
@@ -13,14 +12,13 @@ const initialState = {
 export const datoReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case LOGIN_TYPE:
-      const { name, email, id } = payload;
+      const { name, email } = payload;
       return {
         ...state,
         user: {
           login: true,
           name,
           email,
-          id,
         },
       };
     case LOGOUT_TYPE:
@@ -29,7 +27,6 @@ export const datoReducer = (state = initialState, { type, payload }) => {
         user: { login: false, name: "", email: "" },
         datos: {},
       };
-    //   return { ...state, user: initialState.user, datos: initialState.datos };
     default:
       return { ...state };
   }

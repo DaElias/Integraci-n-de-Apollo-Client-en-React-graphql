@@ -37,3 +37,16 @@ export const GET_CATEGORYS = gql`
     }
   }
 `;
+
+export const GET_FAVORITES = gql`
+  query getFavs {
+    favs {
+      id
+      categoryId
+      src
+      likes
+      liked
+      userId
+    }
+  }
+`;

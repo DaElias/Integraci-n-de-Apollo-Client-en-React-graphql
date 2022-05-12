@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { useMutation } from "@apollo/client";
 import { Img, ImgWrapper, Article } from "./styles";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useNearScreem } from "../../hooks/useNearScreem";
 import FavButtom from "../FavButton";
 import { LIKE_ANONIMUS_PHOTO } from "../../hoc/MutationsGraphql";

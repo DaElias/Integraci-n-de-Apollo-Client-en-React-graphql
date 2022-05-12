@@ -15,7 +15,7 @@ const ListPhotoCard = () => {
   const photos = data ? data.photos : [];
 
   return (
-    <ul>
+    <ul style={{paddingBottom:"45px"}}>
       {!loading ? (
         photos.map((id, key) => <PhotoCard key={key} {...id} />)
       ) : (
